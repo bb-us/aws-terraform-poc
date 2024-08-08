@@ -25,40 +25,6 @@ module "ec2_instance" {
   }
 }
 
-resource "aws_launch_template" "app_launch_template" {
-  name_prefix          = "app-lt-${var.vpc_name}-"
-  image_id             = var.ec2_ami
-  instance_type        = var.asg_instance_type
-  key_name             = var.key_name
-  vpc_security_group_ids = [module.vpc.default_security_group_id]
-
-  block_device_mappings {
-    device_name = "/dev/sda1"
-
-    ebs {
-      volume_size = var.ec2_volume_size
-    }
-  }
-}
-
-resource "aws_autoscaling_group" "app_asg" {
-  launch_template {
-    id      = aws_launch_template.app_launch_template.id
-    version = "$Latest"
-  }
-
-  min_size         = var.asg_min_size
-  max_size         = var.asg_max_size
-  desired_capacity = var.asg_desired_capacity
-  vpc_zone_identifier = module.vpc.private_subnets
-
-  tag {
-    key                 = "Name"
-    value               = "POC-ASG-Instance"
-    propagate_at_launch = true
-  }
-}
-
 resource "aws_lb" "app_alb" {
   name               = "app-alb-${var.vpc_name}"
   internal           = false
