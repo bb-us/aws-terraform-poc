@@ -109,4 +109,4 @@ This Terraform configuration will create the following AWS resources:
 
 ---
 
-This README provides an overview of the project, detailed instructions for deployment, and information on how to customize and manage the infrastructure. Adjust it as needed to better fit your project's specifics or organization requirements.
+This README provides an overview of the project, detailed instructions for deployment, and information on how to customize and manage the infrastructure.
