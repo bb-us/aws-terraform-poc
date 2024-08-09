@@ -107,10 +107,6 @@ This Terraform configuration will create the following AWS resources:
 - 1 Target Group (for the ALB)
 - 2 IAM Roles and associated policies (for ASG and logging)
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
 This README provides an overview of the project, detailed instructions for deployment, and information on how to customize and manage the infrastructure. Adjust it as needed to better fit your project's specifics or organization requirements.
