@@ -1,5 +1,10 @@
-provider "aws" {
-  region = "us-east-1"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.62.0"
+    }
+  }
 }
 
 # EC2 Instance in Public Subnet 2
